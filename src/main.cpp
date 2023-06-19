@@ -9,7 +9,7 @@ int main(int argc, char const *argv[])
     // Wait for the PC console to start
     hwlib::wait_ms(100);
 
-    hwlib::cout << "I2C" << hwlib::flush;
+    hwlib::cout << "I2C" << "\n" << hwlib::flush;
     // Call the I2C function
     while (true)
     {
