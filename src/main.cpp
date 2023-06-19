@@ -13,7 +13,8 @@ int main(int argc, char const *argv[])
     // Call the I2C function
     while (true)
     {
-        sensor.I2C();
+        sensor.GetTemperature();
+        sensor.GetHumidity();
         hwlib::wait_ms(10000);
     }
 
