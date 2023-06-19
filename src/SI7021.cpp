@@ -1,9 +1,5 @@
 #include "SI7021.hpp"
 
-void SI7021::print(){
-    hwlib::cout << "test";
-}
-
 void SI7021::GetTemperature() {
     uint8_t temperature_out[2];
 
