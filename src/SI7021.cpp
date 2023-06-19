@@ -1,5 +1,22 @@
+/**
+ * @file SI7021.cpp
+ * @author Luke Tenback (Luke.tenback@student.hu.nl)
+ * @brief 
+ * @version 0.1
+ * @date 2023-06-19
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include "SI7021.hpp"
 
+/**
+ * @brief
+ * Get the Temperature object
+ * @details
+ * Get the temperature data from the SI7021 sensor and convert that into usable degrees Celsius.
+ */
 void SI7021::GetTemperature() {
     uint8_t temperature_out[2];
 
@@ -18,6 +35,12 @@ void SI7021::GetTemperature() {
     hwlib::cout << "Temperature: " << temperature << " degrees Celsius" << hwlib::endl;
 }
 
+/**
+ * @brief 
+ * Get the Humidity object
+ * @details 
+ * Get the humidity data from the SI7021 sensor and convert that into usable humidity percentages.
+ */
 void SI7021::GetHumidity() {
     uint8_t humidity_out[2];
 
