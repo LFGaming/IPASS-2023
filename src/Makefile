@@ -9,10 +9,10 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := SI7021.cpp
+SOURCES := SI7021.cpp BMP280.cpp
 
 # header files in this project
-HEADERS := SI7021.hpp
+HEADERS := SI7021.hpp BMP280.hpp
 
 # other places to look for files for this project
 SEARCH  := 
