@@ -31,11 +31,20 @@ private:
 public:
     BMP280(hwlib::i2c_bus& bus) : bus(bus) {}
 
-    void writeRegister(uint8_t reg, uint8_t value);
+    void writeRegister();
 
-    void writeI2C();
+    //fix that this works from within the cpp too.
+    std::array<uint8_t, 24> read_registers(uint8_t start, size_t count) {
+        uint8_t data[] = { start };
+        bus.write(BMP280_ADDRESS).write(data, 1);
 
-    std::array<uint8_t, 24> read_registers(uint8_t start, size_t count);
+        std::array<uint8_t, 24> buffer{};
+        for (size_t i = 0; i < count; i++) {
+            buffer[i] = bus.read(BMP280_ADDRESS).read_byte();
+        }
+
+        return buffer;
+    }
 
     void read_calibration_data();
 

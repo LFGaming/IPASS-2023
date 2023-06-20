@@ -1,29 +1,26 @@
+#include "BMP280.hpp"
 #include <hwlib.hpp>
 #include <array>
-#include "BMP280.hpp"
 
-void BMP280::writeRegister(uint8_t reg, uint8_t value) {
-    uint8_t data[] = {reg, value};
+
+
+
+void BMP280::writeRegister() {
+    uint8_t data[] = {0x80, 0xFF};
     bus.write(BMP280_ADDRESS).write(data, 2);
 }
 
+    // std::array<uint8_t, 24> BMP280::read_registers(uint8_t start, size_t count) {
+    //     uint8_t data[] = { start };
+    //     bus.write(BMP280_ADDRESS).write(data, 1);
 
-void BMP280::writeI2C() {
-    // Write a value to a register
-    writeRegister(0x80, 0xFF);
-}
+    //     std::array<uint8_t, 24> buffer{};
+    //     for (size_t i = 0; i < count; i++) {
+    //         buffer[i] = bus.read(BMP280_ADDRESS).read_byte();
+    //     }
 
-std::array<uint8_t, 24> BMP280::read_registers(uint8_t start, size_t count) {
-    uint8_t data[] = { start };
-    bus.write(BMP280_ADDRESS).write(data, 1);
-
-    std::array<uint8_t, 24> buffer{};
-    for (size_t i = 0; i < count; i++) {
-        buffer[i] = bus.read(BMP280_ADDRESS).read_byte();
-    }
-
-    return buffer;
-}
+    //     return buffer;
+    // }
 
 void BMP280::read_calibration_data() {
     std::array<uint8_t, 24> reg_data = read_registers(0x88, 24);
@@ -42,7 +39,7 @@ void BMP280::read_calibration_data() {
     calibrationData.dig_P9 = (reg_data[0x9E] << 8) | reg_data[0x9F];
 }
 
-float BMP280::readTemperature() {
+    float BMP280::readTemperature() {
     bus.write(BMP280_ADDRESS).write(BMP280_REG_TEMP_MSB);
     uint8_t msb = bus.read(BMP280_ADDRESS).read_byte();
     uint8_t lsb = bus.read(BMP280_ADDRESS).read_byte();

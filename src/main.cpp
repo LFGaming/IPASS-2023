@@ -1,5 +1,5 @@
 #include "SI7021.hpp"
-#include "bmp280.hpp"
+#include "BMP280.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -10,9 +10,6 @@ int main(int argc, char const *argv[])
 
     // Create BMP280 object
     BMP280 bmp280(i2c_bus);
-
-    // Call writeI2C() on the BMP280 object
-    bmp280.writeI2C();
 
     // Read calibration data
     bmp280.read_calibration_data();
@@ -27,7 +24,6 @@ int main(int argc, char const *argv[])
         // SI7021
         si7021.GetTemperature();
         si7021.GetHumidity();
-
 
         // BMP280
         // Read temperature
