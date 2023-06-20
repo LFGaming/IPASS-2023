@@ -2,9 +2,6 @@
 #include <hwlib.hpp>
 #include <array>
 
-
-
-
 void BMP280::writeRegister() {
     uint8_t data[] = {0x80, 0xFF};
     bus.write(BMP280_ADDRESS).write(data, 2);
