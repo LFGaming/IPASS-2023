@@ -412,11 +412,23 @@ TODO    Consulting the BMP280 datasheet or the sensor manufacturer's documentati
 #include <hwlib.hpp>
 #include <array>
 
-constexpr uint8_t BMP280_ADDRESS = 0x76;
+constexpr uint8_t BMP280_ADDRESS = 0x77;
 constexpr uint8_t BMP280_REG_TEMP_MSB = 0xFA;
 
 struct CalibrationData {
-    // Add the necessary calibration data members here
+      uint16_t dig_T1; /**< dig_T1 cal register. */
+  int16_t dig_T2;  /**<  dig_T2 cal register. */
+  int16_t dig_T3;  /**< dig_T3 cal register. */
+
+  uint16_t dig_P1; /**< dig_P1 cal register. */
+  int16_t dig_P2;  /**< dig_P2 cal register. */
+  int16_t dig_P3;  /**< dig_P3 cal register. */
+  int16_t dig_P4;  /**< dig_P4 cal register. */
+  int16_t dig_P5;  /**< dig_P5 cal register. */
+  int16_t dig_P6;  /**< dig_P6 cal register. */
+  int16_t dig_P7;  /**< dig_P7 cal register. */
+  int16_t dig_P8;  /**< dig_P8 cal register. */
+  int16_t dig_P9;  /**< dig_P9 cal register. */
 };
 
 class BMP280 {
@@ -439,7 +451,7 @@ public:
 
     std::array<uint8_t, 24> read_registers(uint8_t start, size_t count) {
         uint8_t data[] = {start};
-        write_data(data, 1);
+        bus.write(data[1]);
 
         std::array<uint8_t, 24> buffer{};
         for (size_t i = 0; i < count; i++) {
@@ -470,6 +482,7 @@ public:
         bus.write(BMP280_ADDRESS).write(BMP280_REG_TEMP_MSB);
         uint8_t msb = bus.read(BMP280_ADDRESS).read_byte();
         uint8_t lsb = bus.read(BMP280_ADDRESS).read_byte();
+        hwlib::cout << lsb << "\n" << msb << "\n";
 
         int32_t adcValue = (static_cast<int32_t>(msb) << 12) | (static_cast<int32_t>(lsb) << 4);
         int32_t var1 = ((((adcValue >> 3) - (static_cast<int32_t>(calibrationData.dig_T1) << 1))) *
