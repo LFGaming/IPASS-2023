@@ -13,15 +13,17 @@ int main()
     // Call writeI2C() on the BMP280 object
     bmp280.writeI2C();
 
+    // Read calibration data
+    bmp280.read_calibration_data();
+
     // Read temperature
     float temperature = bmp280.readTemperature();
 
     // Convert float temperature to integer
-    int temperatureInt = static_cast<int>(temperature);
+    uint16_t temperatureInt = static_cast<uint16_t>(temperature);
 
     // Print temperature
     hwlib::cout << "Temperature: " << temperatureInt << " degrees Celsius\n";
-
 
     return 0;
 }
