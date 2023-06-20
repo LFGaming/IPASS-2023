@@ -1,0 +1,9 @@
+
+*.o
+*.c
+*.elf
+*.hex
+*.map
+src/_cc_flags
+src/_cpp_flags
+src/_linker_flags
