@@ -6,6 +6,7 @@
 
 constexpr uint8_t BMP280_ADDRESS = 0x77;
 constexpr uint8_t BMP280_REG_TEMP_MSB = 0xFA;
+constexpr uint8_t BMP280_REGISTER_PRESSUREDATA = 0xF7;
 
 struct CalibrationData {
     uint16_t dig_T1; /**< dig_T1 cal register. */
@@ -21,15 +22,54 @@ struct CalibrationData {
     int16_t dig_P7;  /**< dig_P7 cal register. */
     int16_t dig_P8;  /**< dig_P8 cal register. */
     int16_t dig_P9;  /**< dig_P9 cal register. */
+
+    int32_t t_fine; // Member variable for storing fine temperature value
 };
 
 class BMP280 {
 private:
+    hwlib::pin_oc & scl;
+    hwlib::pin_oc & sda;
     hwlib::i2c_bus& bus;
     CalibrationData calibrationData; // Add the appropriate calibration data
 
 public:
-    BMP280(hwlib::i2c_bus& bus) : bus(bus) {}
+    BMP280(hwlib::target::pin_oc & scl, hwlib::target::pin_oc & sda, hwlib::i2c_bus& bus) :
+    scl(scl),
+    sda(sda),
+    bus(bus)
+    {}
+
+    void write_start(){
+        sda.write( 0 ); sda.flush();
+        hwlib::wait_us(1);  
+        scl.write( 0 ); scl.flush();
+        hwlib::wait_us(1);  
+    }
+    
+    void write_nack(){
+        scl.write( 0 ); scl.flush();
+        hwlib::wait_us(1);   
+        sda.write( 1 ); sda.flush();
+        hwlib::wait_us(1);
+        scl.write( 1 ); scl.flush();
+        hwlib::wait_us(1);
+        scl.write( 0 ); scl.flush();
+        hwlib::wait_us(1);   
+        sda.write( 0 ); sda.flush();
+        hwlib::wait_us(1);  
+    }
+
+    void write_stop(){
+        scl.write( 0 ); scl.flush();
+        hwlib::wait_us(1);  
+        sda.write( 0 ); sda.flush();
+        hwlib::wait_us(1);   
+        scl.write( 1 ); scl.flush();
+        hwlib::wait_us(1);   
+        sda.write( 1 ); sda.flush();
+        hwlib::wait_us(1);
+    }
 
     void writeRegister();
 
@@ -49,6 +89,9 @@ public:
     void read_calibration_data();
 
     float readTemperature();
+
+    float readPressure();
+
 };
 
 #endif //BMP280_HPP
