@@ -27,27 +27,27 @@ int main(int argc, char const *argv[])
 
         // BMP280
         // Read temperature
-        // bmp280.readTemperature();
-        float temperature = bmp280.readTemperature();
-        //float temperature = 12.7;
+        bmp280.readTemperature();
+        // float temperature = bmp280.readTemperature();
+        // //float temperature = 12.7;
 
-        // Convert float temperature to integer
-        //uint16_t temperatureInt = static_cast<uint16_t>(temperature);
-        int temperatureInt = static_cast<int>(temperature);
+        // // Convert float temperature to integer
+        // //uint16_t temperatureInt = static_cast<uint16_t>(temperature);
+        // int temperatureInt = static_cast<int>(temperature);
 
-        // Print temperature
-        hwlib::cout << "BMP280: Temperature: " << temperatureInt << " degrees Celsius\n";
+        // // Print temperature
+        // hwlib::cout << "BMP280: Temperature: " << temperatureInt << " degrees Celsius\n";
 
-        hwlib::wait_ms(1000);
-        float temperature2 = bmp280.readTemperature();
-        //float temperature = 12.7;
+        // hwlib::wait_ms(1000);
+        // float temperature2 = bmp280.readTemperature();
+        // //float temperature = 12.7;
 
-        // Convert float temperature to integer
-        //uint16_t temperatureInt2 = static_cast<uint16_t>(temperature2);
-        int temperatureInt2 = static_cast<int>(temperature2);
+        // // Convert float temperature to integer
+        // //uint16_t temperatureInt2 = static_cast<uint16_t>(temperature2);
+        // int temperatureInt2 = static_cast<int>(temperature2);
 
-        // Print temperature
-        hwlib::cout << "BMP280: Temperature2: " << temperatureInt2 << " degrees Celsius\n";
+        // // Print temperature
+        // hwlib::cout << "BMP280: Temperature2: " << temperatureInt2 << " degrees Celsius\n";
 
         //float pressure = bmp280.readPressure();
         // int pressureInt = pressure;

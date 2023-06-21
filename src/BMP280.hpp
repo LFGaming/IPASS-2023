@@ -28,6 +28,12 @@ struct CalibrationData {
 
 class BMP280 {
 private:
+   const uint16_t config = 0xF5;
+      uint16_t config_byte= 0b01100100;
+         const uint16_t ctrl_hum = 0xF2;
+            uint8_t osrs_h = 0b101;
+            bool isInitialized = false; // Initialize the isInitialized flag
+
     hwlib::pin_oc & scl;
     hwlib::pin_oc & sda;
     hwlib::i2c_bus& bus;
@@ -87,6 +93,8 @@ public:
     }
 
     void read_calibration_data();
+
+    void initialize();
 
     float readTemperature();
 

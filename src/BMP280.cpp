@@ -36,31 +36,67 @@ void BMP280::read_calibration_data() {
     calibrationData.dig_P9 = (reg_data[0x9E] << 8) | reg_data[0x9F];
 }
 
+void BMP280::initialize() {
+    // Perform the necessary initialization steps for BMP280 sensor
+    // ...
+
+    // config to add filter and standby timer
+    { hwlib::i2c_write_transaction wtrans = ((hwlib::i2c_bus*)(&bus))->write(BMP280_ADDRESS);
+    wtrans.write(config);
+    wtrans.write(config_byte);}
+    
+
+    
+    { hwlib::i2c_write_transaction wtrans = ((hwlib::i2c_bus*)(&bus))->write(BMP280_ADDRESS);
+    wtrans.write(ctrl_hum);
+    wtrans.write(osrs_h);}
+
+    // Set the isInitialized flag to true
+    isInitialized = true;
+}
+
 float BMP280::readTemperature() {
+    // Initialize the BMP280 sensor if not already initialized
+    if (!isInitialized) {
+        initialize();
+    }
+
     uint8_t msb, lsb;
 
     // Create I2C write transaction
-    hwlib::i2c_write_transaction writetrans = bus.write(BMP280_ADDRESS);
-    writetrans.write(BMP280_REG_TEMP_MSB);
+    { hwlib::i2c_write_transaction writetrans = bus.write(BMP280_ADDRESS);
+    writetrans.write(BMP280_REG_TEMP_MSB); }
+    hwlib::wait_us(10); // Add a small delay after write
 
     // Create I2C read transaction
-    hwlib::i2c_read_transaction readtrans = bus.read(BMP280_ADDRESS);
+    { hwlib::i2c_read_transaction readtrans = bus.read(BMP280_ADDRESS);
     msb = readtrans.read_byte();
-    lsb = readtrans.read_byte();
-
+    lsb = readtrans.read_byte(); }
     BMP280::write_nack();
     BMP280::write_stop();
+    hwlib::wait_us(10); // Add a small delay after read
 
     int32_t adcValue = (static_cast<int32_t>(msb) << 12) | (static_cast<int32_t>(lsb) << 4);
+
     int32_t var1 = ((((adcValue >> 3) - (static_cast<int32_t>(calibrationData.dig_T1) << 1))) *
         (static_cast<int32_t>(calibrationData.dig_T2))) >> 11;
     int32_t var2 = (((((adcValue >> 4) - (static_cast<int32_t>(calibrationData.dig_T1))) *
         ((adcValue >> 4) - (static_cast<int32_t>(calibrationData.dig_T1)))) >> 12) *
         (static_cast<int32_t>(calibrationData.dig_T3))) >> 14;
     int32_t t_fine = var1 + var2;
-    float T = (t_fine * 5 + 126) / 256.0f;
+    int32_t temperature = (t_fine * 5 + 128) >> 8;
+
+    // Convert the temperature to a float with two decimal places
+    int T = static_cast<int>(temperature) / 100.0f;
+
+    // Print the raw ADC value and calculated temperature for debugging
+    hwlib::cout << "BMP280: Raw ADC Value: " << adcValue << hwlib::endl;
+    hwlib::cout << "BMP280: Temperature: " << T << " degrees Celsius" << hwlib::endl;
+
     return T;
 }
+
+
 
 float BMP280::readPressure() {
     uint8_t msb, lsb, xlsb;
@@ -69,14 +105,14 @@ float BMP280::readPressure() {
     int32_t t_fine = readTemperature();
 
     // Create I2C write transaction
-    hwlib::i2c_write_transaction writetrans = bus.write(BMP280_ADDRESS);
-    writetrans.write(BMP280_REGISTER_PRESSUREDATA);
+    { hwlib::i2c_write_transaction writetrans = bus.write(BMP280_ADDRESS);
+    writetrans.write(BMP280_REGISTER_PRESSUREDATA); }
 
     // Create I2C read transaction
-    hwlib::i2c_read_transaction readtrans = bus.read(BMP280_ADDRESS);
+    { hwlib::i2c_read_transaction readtrans = bus.read(BMP280_ADDRESS);
     msb = readtrans.read_byte();
     lsb = readtrans.read_byte();
-    xlsb = readtrans.read_byte();
+    xlsb = readtrans.read_byte(); }
 
     int32_t adc_P = (static_cast<int32_t>(msb) << 16) | (static_cast<int32_t>(lsb) << 8) | (static_cast<int32_t>(xlsb) >> 4);
     adc_P >>= 4;
