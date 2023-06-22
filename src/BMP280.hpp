@@ -38,6 +38,7 @@ private:
     hwlib::pin_oc & sda;
     hwlib::i2c_bus& bus;
     CalibrationData calibrationData; // Add the appropriate calibration data
+       uint8_t results[3];
 
 public:
     BMP280(hwlib::target::pin_oc & scl, hwlib::target::pin_oc & sda, hwlib::i2c_bus& bus) :
@@ -85,9 +86,10 @@ public:
         bus.write(BMP280_ADDRESS).write(data, 1);
 
         std::array<uint8_t, 24> buffer{};
-        for (size_t i = 0; i < count; i++) {
-            buffer[i] = bus.read(BMP280_ADDRESS).read_byte();
-        }
+        bus.read(BMP280_ADDRESS).read(buffer.data(), count);
+        // for (size_t i = 0; i < count; i++) {
+        //     buffer[i] = bus.read(BMP280_ADDRESS).read_byte();
+        // }
 
         return buffer;
     }
