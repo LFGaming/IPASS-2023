@@ -1,0 +1,27 @@
+\hypertarget{_s_i7021_8hpp_source}{}\doxysection{SI7021.\+hpp}
+\label{_s_i7021_8hpp_source}\index{src/SI7021.hpp@{src/SI7021.hpp}}
+\mbox{\hyperlink{_s_i7021_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#ifndef\ SI7021\_HPP}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#define\ SI7021\_HPP}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}hwlib.hpp"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00023\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_i7021}{SI7021}}\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00025\ \ \ \ \ hwlib::pin\_oc\&\ scl;\ }
+\DoxyCodeLine{00026\ \ \ \ \ hwlib::pin\_oc\&\ sda;\ }
+\DoxyCodeLine{00027\ \ \ \ \ hwlib::i2c\_bus\_bit\_banged\_scl\_sda\ bus;\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00036\ \ \ \ \ \mbox{\hyperlink{class_s_i7021_ab567e77502ce81800aa1d99ae638e6e7}{SI7021}}(hwlib::target::pin\_oc\&\ scl,\ hwlib::target::pin\_oc\&\ sda)}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ :\ scl(scl),\ sda(sda),\ bus(hwlib::i2c\_bus\_bit\_banged\_scl\_sda(scl,\ sda))\ \{\}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_i7021_ab0b2b3e04b302d7a6d00b730ebfd268f}{GetTemperature}}();}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_i7021_afbd988c5b13bb9d973de9c4b3e6e440d}{GetHumidity}}();}
+\DoxyCodeLine{00054\ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SI7021\_HPP}}
+
+\end{DoxyCode}

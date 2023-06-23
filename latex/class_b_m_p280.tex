@@ -1,0 +1,113 @@
+\hypertarget{class_b_m_p280}{}\doxysection{BMP280 Class Reference}
+\label{class_b_m_p280}\index{BMP280@{BMP280}}
+
+
+Class for interfacing with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} temperature and pressure sensor.  
+
+
+
+
+{\ttfamily \#include $<$BMP280.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_b_m_p280_a6f61e0878f974c53b049d3d79af68865}{BMP280}} (hwlib\+::i2c\+\_\+bus \&bus)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_b_m_p280}{BMP280}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_m_p280_ad7c80461c87f3d4e3508d0d735fcc7a1}{write\+Register}} ()
+\begin{DoxyCompactList}\small\item\em Write data to a register of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\item 
+std\+::array$<$ uint8\+\_\+t, 24 $>$ \mbox{\hyperlink{class_b_m_p280_a82815a250c2b1d36436490d9be247e62}{read\+\_\+registers}} (uint8\+\_\+t start, size\+\_\+t count)
+\begin{DoxyCompactList}\small\item\em Read a sequence of registers from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_b_m_p280_ab8228696f1c2d6506c0bc0ac0bdb4859}{read\+\_\+calibration\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Read the calibration data from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_b_m_p280_a0d957c8516151d3e6d9e1c1f6eb87c70}{read\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Read the temperature from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for interfacing with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} temperature and pressure sensor. 
+
+The \mbox{\hyperlink{class_b_m_p280}{BMP280}} class provides functions to communicate with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor using I2C. It allows reading temperature and calibration data from the sensor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_b_m_p280_a6f61e0878f974c53b049d3d79af68865}\label{class_b_m_p280_a6f61e0878f974c53b049d3d79af68865}} 
+\index{BMP280@{BMP280}!BMP280@{BMP280}}
+\index{BMP280@{BMP280}!BMP280@{BMP280}}
+\doxysubsubsection{\texorpdfstring{BMP280()}{BMP280()}}
+{\footnotesize\ttfamily BMP280\+::\+BMP280 (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+bus \&}]{bus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_b_m_p280}{BMP280}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bus} & The I2C bus to communicate with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_b_m_p280_ab8228696f1c2d6506c0bc0ac0bdb4859}\label{class_b_m_p280_ab8228696f1c2d6506c0bc0ac0bdb4859}} 
+\index{BMP280@{BMP280}!read\_calibration\_data@{read\_calibration\_data}}
+\index{read\_calibration\_data@{read\_calibration\_data}!BMP280@{BMP280}}
+\doxysubsubsection{\texorpdfstring{read\_calibration\_data()}{read\_calibration\_data()}}
+{\footnotesize\ttfamily void BMP280\+::read\+\_\+calibration\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read the calibration data from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. 
+
+This function reads the calibration data from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \mbox{\Hypertarget{class_b_m_p280_a82815a250c2b1d36436490d9be247e62}\label{class_b_m_p280_a82815a250c2b1d36436490d9be247e62}} 
+\index{BMP280@{BMP280}!read\_registers@{read\_registers}}
+\index{read\_registers@{read\_registers}!BMP280@{BMP280}}
+\doxysubsubsection{\texorpdfstring{read\_registers()}{read\_registers()}}
+{\footnotesize\ttfamily std\+::array$<$ uint8\+\_\+t, 24 $>$ BMP280\+::read\+\_\+registers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{start,  }\item[{size\+\_\+t}]{count }\end{DoxyParamCaption})}
+
+
+
+Read a sequence of registers from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. 
+
+This function reads a sequence of registers from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor.
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & The starting register address. \\
+\hline
+{\em count} & The number of registers to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::array$<$uint8\+\_\+t, 24$>$ The data read from the registers. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_m_p280_a0d957c8516151d3e6d9e1c1f6eb87c70}\label{class_b_m_p280_a0d957c8516151d3e6d9e1c1f6eb87c70}} 
+\index{BMP280@{BMP280}!readTemperature@{readTemperature}}
+\index{readTemperature@{readTemperature}!BMP280@{BMP280}}
+\doxysubsubsection{\texorpdfstring{readTemperature()}{readTemperature()}}
+{\footnotesize\ttfamily float BMP280\+::read\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read the temperature from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. 
+
+This function reads the temperature from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor and returns the value in degrees Celsius.
+
+\begin{DoxyReturn}{Returns}
+float The temperature value in degrees Celsius. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_b_m_p280_ad7c80461c87f3d4e3508d0d735fcc7a1}\label{class_b_m_p280_ad7c80461c87f3d4e3508d0d735fcc7a1}} 
+\index{BMP280@{BMP280}!writeRegister@{writeRegister}}
+\index{writeRegister@{writeRegister}!BMP280@{BMP280}}
+\doxysubsubsection{\texorpdfstring{writeRegister()}{writeRegister()}}
+{\footnotesize\ttfamily void BMP280\+::write\+Register (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Write data to a register of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. 
+
+This function writes data to a specific register of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_b_m_p280_8hpp}{BMP280.\+hpp}}\item 
+src/\mbox{\hyperlink{_b_m_p280_8cpp}{BMP280.\+cpp}}\end{DoxyCompactItemize}
