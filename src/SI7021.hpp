@@ -16,8 +16,8 @@ class SI7021 {
     bus (hwlib::i2c_bus_bit_banged_scl_sda( scl, sda ))
     {}
 
-    void GetTemperature();
-    void GetHumidity();
+    int GetTemperature();
+    int GetHumidity();
 };
 
 

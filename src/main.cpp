@@ -1,5 +1,5 @@
 #include "SI7021.hpp"
-#include "BMP280.hpp"
+#include "OLED.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -8,33 +8,22 @@ int main(int argc, char const *argv[])
     SI7021 si7021(scl, sda); // Create an instance of the SI7021 class
     auto i2c_bus = hwlib::i2c_bus_bit_banged_scl_sda(scl, sda);
 
-    // Create BMP280 object
-    BMP280 bmp280(i2c_bus);
-
-    // Read calibration data
-    bmp280.read_calibration_data();
+   OLED Oled = OLED(i2c_bus, 0x3c);
 
     // Wait for the PC console to start
     hwlib::wait_ms(100);
+    Oled.clear();
 
     hwlib::cout << "I2C" << "\n" << hwlib::flush;
     // Call the I2C function
     while (true)
     {
         // SI7021
-        si7021.GetTemperature();
-        si7021.GetHumidity();
-
-        // BMP280
-        // Read temperature
-        float temperature = bmp280.readTemperature();
-
-        // Convert float temperature to integer
-        uint16_t temperatureInt = static_cast<uint16_t>(temperature);
-
-        // Print temperature
-        hwlib::cout << "BMP280: Temperature: " << temperatureInt << " degrees Celsius\n";
-
+        int temperature = si7021.GetTemperature();
+        int humidity = si7021.GetHumidity();
+        Oled.clear();
+        Oled.print(temperature, humidity);
+        Oled.headerline();
         hwlib::wait_ms(10000);
     }
 

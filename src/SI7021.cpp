@@ -17,7 +17,7 @@
  * @details
  * Get the temperature data from the SI7021 sensor and convert that into usable degrees Celsius.
  */
-void SI7021::GetTemperature() {
+int SI7021::GetTemperature() {
     uint8_t temperature_out[2];
 
     // Create I2C write transaction
@@ -30,9 +30,9 @@ void SI7021::GetTemperature() {
     uint16_t raw_temperature = (temperature_out[0] << 8) | temperature_out[1];
     // float temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
     uint16_t temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
-
+    return temperature;
     // Print the measured temperature
-    hwlib::cout << "Temperature: " << temperature << " degrees Celsius" << hwlib::endl;
+    // hwlib::cout << "Temperature: " << temperature << " degrees Celsius" << hwlib::endl;
 }
 
 /**
@@ -41,7 +41,7 @@ void SI7021::GetTemperature() {
  * @details 
  * Get the humidity data from the SI7021 sensor and convert that into usable humidity percentages.
  */
-void SI7021::GetHumidity() {
+int SI7021::GetHumidity() {
     uint8_t humidity_out[2];
 
     // Create I2C write transaction
@@ -54,7 +54,7 @@ void SI7021::GetHumidity() {
     uint16_t raw_humidity = (humidity_out[0] << 8) | humidity_out[1];
     // float temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
     uint16_t humidity = static_cast<float>(raw_humidity) * 125 / 65536 - 6;
-
+    return humidity;
     // Print the measured temperature
     hwlib::cout << "Humidity: " << humidity << "%" << hwlib::endl;
 }
