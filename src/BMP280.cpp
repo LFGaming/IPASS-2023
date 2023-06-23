@@ -1,3 +1,14 @@
+/**
+ * @file BMP280.cpp
+ * @author Luke Tenback (Luke.tenback@student.hu.nl)
+ * @brief 
+ * @version 0.1
+ * @date 2023-06-23
+ * 
+ * @copyright Copyright (c) 2023
+ * 
+ */
+
 #include "BMP280.hpp"
 #include <hwlib.hpp>
 #include <array>
