@@ -9,16 +9,16 @@
 #############################################################################
 
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := SI7021.cpp OLED.cpp 
+SOURCES := CCS811.cpp OLED.cpp SI7021.cpp
 
 # header files in this project
-HEADERS := SI7021.hpp OLED.hpp
+HEADERS := CCS811.hpp OLED.hpp SI7021.hpp
 
 # other places to look for files for this project
 SEARCH  := 
 
 # TARGET := UART_PORT_UNO
-# SERIAL_PORT   ?= COM4
+# SERIAL_PORT   ?= COM5
 
 # set RELATIVE to the next higher directory 
 # and defer to the appropriate Makefile.* there
