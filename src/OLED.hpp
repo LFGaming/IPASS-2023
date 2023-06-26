@@ -65,6 +65,21 @@ public:
      * @details Clears the entire OLED screen so that it can be written on again.
      */
     void clear();
+    
+    /**
+     * @brief Display the test text on the OLED screen.
+     * @details This function displays the test text on the OLED screen for the purpose of testing.
+     */
+    void OLEDtesttext();
+
+    /**
+     * @brief Perform a self-test of the OLED display.
+     * @details This function performs a self-test of the OLED display by displaying test text on the screen
+     * and prompting the user to verify the displayed text.
+     *
+     * @return bool True if the self-test passed, False otherwise.
+     */
+    bool OLEDtest();
 };
 
 #endif // OLED_HPP
