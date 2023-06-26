@@ -51,6 +51,33 @@ public:
      * @return int The humidity value in percentage.
      */
     int GetHumidity();
+
+    /**
+     * @brief Test the SI7021 temperature measurement.
+     * @details This function tests the temperature measurement functionality of the SI7021 sensor.
+     * It prompts the user to verify the measured temperature and returns the user's input.
+     *
+     * @return int The user's input ('y' or 'n') indicating whether the measured temperature is correct or not.
+     */
+    int testTemp();
+
+    /**
+     * @brief Test the SI7021 humidity measurement.
+     * @details This function tests the humidity measurement functionality of the SI7021 sensor.
+     * It prompts the user to verify the measured humidity and returns the user's input.
+     *
+     * @return int The user's input ('y' or 'n') indicating whether the measured humidity is correct or not.
+     */
+    int testHumid();
+
+    /**
+     * @brief Perform a self-test of the SI7021 sensor.
+     * @details This function performs a self-test of the SI7021 sensor by testing the temperature and humidity measurements.
+     * It prompts the user to verify the measured values and returns a boolean indicating whether the self-test passed or not.
+     *
+     * @return bool True if the self-test passed, False otherwise.
+     */
+    bool SItest();
 };
 
 #endif // SI7021_HPP

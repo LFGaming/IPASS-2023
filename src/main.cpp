@@ -15,8 +15,8 @@ int main(int argc, char const *argv[])
     Oled.clear();
 
     hwlib::cout << "I2C" << "\n" << hwlib::flush;
-    // Call the I2C function
-    while (true)
+    // Call the I2C function    
+    while (si7021.SItest())
     {
         // SI7021
         int temperature = si7021.GetTemperature();
