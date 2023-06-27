@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IPASS 2023
+   <div id="projectname">IPASS 2023<span id="projectnumber">&#160;v1.3</span>
    </div>
   </td>
  </tr>
@@ -112,6 +112,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:afbd988c5b13bb9d973de9c4b3e6e440d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i7021.html#afbd988c5b13bb9d973de9c4b3e6e440d">GetHumidity</a> ()</td></tr>
 <tr class="memdesc:afbd988c5b13bb9d973de9c4b3e6e440d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the humidity from the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor.  <br /></td></tr>
 <tr class="separator:afbd988c5b13bb9d973de9c4b3e6e440d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a6d088635cadea55d82080bc2dee90c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i7021.html#a5a6d088635cadea55d82080bc2dee90c">testTemp</a> ()</td></tr>
+<tr class="memdesc:a5a6d088635cadea55d82080bc2dee90c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> temperature measurement.  <br /></td></tr>
+<tr class="separator:a5a6d088635cadea55d82080bc2dee90c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49343baddf85d66a968bfcc7a2b987c6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i7021.html#a49343baddf85d66a968bfcc7a2b987c6">testHumid</a> ()</td></tr>
+<tr class="memdesc:a49343baddf85d66a968bfcc7a2b987c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Test the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> humidity measurement.  <br /></td></tr>
+<tr class="separator:a49343baddf85d66a968bfcc7a2b987c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77906e500d9f9914f2fd67d37118d800"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_i7021.html#a77906e500d9f9914f2fd67d37118d800">SItest</a> ()</td></tr>
+<tr class="memdesc:a77906e500d9f9914f2fd67d37118d800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a self-test of the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor.  <br /></td></tr>
+<tr class="separator:a77906e500d9f9914f2fd67d37118d800"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for interfacing with the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> temperature and humidity sensor. </p>
@@ -202,6 +211,69 @@ Public Member Functions</h2></td></tr>
 <p>Get the temperature from the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor. </p>
 <p>This function retrieves the temperature data from the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor and converts it into degrees Celsius.</p>
 <dl class="section return"><dt>Returns</dt><dd>int The temperature value in degrees Celsius. </dd></dl>
+
+</div>
+</div>
+<a id="a77906e500d9f9914f2fd67d37118d800" name="a77906e500d9f9914f2fd67d37118d800"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77906e500d9f9914f2fd67d37118d800">&#9670;&#160;</a></span>SItest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SI7021::SItest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a self-test of the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor. </p>
+<p>This function performs a self-test of the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor by testing the temperature and humidity measurements. It prompts the user to verify the measured values and returns a boolean indicating whether the self-test passed or not.</p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the self-test passed, False otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a49343baddf85d66a968bfcc7a2b987c6" name="a49343baddf85d66a968bfcc7a2b987c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49343baddf85d66a968bfcc7a2b987c6">&#9670;&#160;</a></span>testHumid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SI7021::testHumid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> humidity measurement. </p>
+<p>This function tests the humidity measurement functionality of the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor. It prompts the user to verify the measured humidity and returns the user's input.</p>
+<dl class="section return"><dt>Returns</dt><dd>int The user's input ('y' or 'n') indicating whether the measured humidity is correct or not. </dd></dl>
+
+</div>
+</div>
+<a id="a5a6d088635cadea55d82080bc2dee90c" name="a5a6d088635cadea55d82080bc2dee90c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a6d088635cadea55d82080bc2dee90c">&#9670;&#160;</a></span>testTemp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SI7021::testTemp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Test the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> temperature measurement. </p>
+<p>This function tests the temperature measurement functionality of the <a class="el" href="class_s_i7021.html" title="Class for interfacing with the SI7021 temperature and humidity sensor.">SI7021</a> sensor. It prompts the user to verify the measured temperature and returns the user's input.</p>
+<dl class="section return"><dt>Returns</dt><dd>int The user's input ('y' or 'n') indicating whether the measured temperature is correct or not. </dd></dl>
 
 </div>
 </div>

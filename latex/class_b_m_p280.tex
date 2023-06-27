@@ -12,6 +12,15 @@ Class for interfacing with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} tempera
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{class_b_m_p280_a77bafea83ec8b8f2fd5b058405d721c2}\label{class_b_m_p280_a77bafea83ec8b8f2fd5b058405d721c2}} 
+{\bfseries BMP280} (hwlib\+::target\+::pin\+\_\+oc \&scl, hwlib\+::target\+::pin\+\_\+oc \&sda)
+\item 
+\mbox{\Hypertarget{class_b_m_p280_a07e758246ca7026dee6203c04c10a922}\label{class_b_m_p280_a07e758246ca7026dee6203c04c10a922}} 
+void {\bfseries gettemp} ()
+\item 
+\mbox{\Hypertarget{class_b_m_p280_aa58b0b3e76ee100115e32feff1d98d82}\label{class_b_m_p280_aa58b0b3e76ee100115e32feff1d98d82}} 
+BMP280\+\_\+\+S32\+\_\+t {\bfseries bmp280\+\_\+compensate\+\_\+\+T\+\_\+int32} (BMP280\+\_\+\+S32\+\_\+t adc\+\_\+T)
+\item 
 \mbox{\hyperlink{class_b_m_p280_a6f61e0878f974c53b049d3d79af68865}{BMP280}} (hwlib\+::i2c\+\_\+bus \&bus)
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_b_m_p280}{BMP280}} object. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_b_m_p280_ad7c80461c87f3d4e3508d0d735fcc7a1}{write\+Register}} ()
@@ -22,6 +31,12 @@ void \mbox{\hyperlink{class_b_m_p280_ab8228696f1c2d6506c0bc0ac0bdb4859}{read\+\_
 \begin{DoxyCompactList}\small\item\em Read the calibration data from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{class_b_m_p280_a0d957c8516151d3e6d9e1c1f6eb87c70}{read\+Temperature}} ()
 \begin{DoxyCompactList}\small\item\em Read the temperature from the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_b_m_p280_aee9f91c727affbed3ee33f9e539b3a5d}\label{class_b_m_p280_aee9f91c727affbed3ee33f9e539b3a5d}} 
+BMP280\+\_\+\+S32\+\_\+t {\bfseries t\+\_\+fine}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -109,5 +124,6 @@ This function writes data to a specific register of the \mbox{\hyperlink{class_b
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
+src/BMP2.\+hpp\item 
 src/\mbox{\hyperlink{_b_m_p280_8hpp}{BMP280.\+hpp}}\item 
 src/\mbox{\hyperlink{_b_m_p280_8cpp}{BMP280.\+cpp}}\end{DoxyCompactItemize}

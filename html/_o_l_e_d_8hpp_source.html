@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IPASS 2023
+   <div id="projectname">IPASS 2023<span id="projectnumber">&#160;v1.3</span>
    </div>
   </td>
  </tr>
@@ -121,14 +121,20 @@ $(document).ready(function(){initNavTree('_o_l_e_d_8hpp_source.html',''); initRe
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_l_e_d.html#a572d36bb79196b20a99de03db9c9c282">print</a>(<span class="keywordtype">int</span> temperature, <span class="keywordtype">int</span> humidity);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_l_e_d.html#a7455cb5100bdb48b45655f4f70d24ae6">clear</a>();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>};</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#endif </span><span class="comment">// OLED_HPP</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_o_l_e_d.html#ab746011662736e10b03f9cb3c073291e">OLEDtesttext</a>();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_o_l_e_d.html#a34fecc35e49d842cc3611a1b11746647">OLEDtest</a>();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif </span><span class="comment">// OLED_HPP</span></div>
 <div class="ttc" id="aclass_o_l_e_d_html"><div class="ttname"><a href="class_o_l_e_d.html">OLED</a></div><div class="ttdoc">Class for interfacing with the OLED display.</div><div class="ttdef"><b>Definition:</b> OLED.hpp:23</div></div>
+<div class="ttc" id="aclass_o_l_e_d_html_a34fecc35e49d842cc3611a1b11746647"><div class="ttname"><a href="class_o_l_e_d.html#a34fecc35e49d842cc3611a1b11746647">OLED::OLEDtest</a></div><div class="ttdeci">bool OLEDtest()</div><div class="ttdoc">Perform a self-test of the OLED display.</div><div class="ttdef"><b>Definition:</b> OLED.cpp:55</div></div>
 <div class="ttc" id="aclass_o_l_e_d_html_a448d6d29bf620f570c15eb80d511565c"><div class="ttname"><a href="class_o_l_e_d.html#a448d6d29bf620f570c15eb80d511565c">OLED::OLED</a></div><div class="ttdeci">OLED(hwlib::i2c_bus_bit_banged_scl_sda &amp;bus, uint8_t address)</div><div class="ttdoc">Construct a new OLED object.</div><div class="ttdef"><b>Definition:</b> OLED.hpp:39</div></div>
 <div class="ttc" id="aclass_o_l_e_d_html_a572d36bb79196b20a99de03db9c9c282"><div class="ttname"><a href="class_o_l_e_d.html#a572d36bb79196b20a99de03db9c9c282">OLED::print</a></div><div class="ttdeci">void print(int temperature, int humidity)</div><div class="ttdoc">Print the values of the given parameters.</div><div class="ttdef"><b>Definition:</b> OLED.cpp:20</div></div>
 <div class="ttc" id="aclass_o_l_e_d_html_a7455cb5100bdb48b45655f4f70d24ae6"><div class="ttname"><a href="class_o_l_e_d.html#a7455cb5100bdb48b45655f4f70d24ae6">OLED::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear the OLED screen.</div><div class="ttdef"><b>Definition:</b> OLED.cpp:34</div></div>
 <div class="ttc" id="aclass_o_l_e_d_html_ab53ac5ec90b3ba46b9d4c66fc11159be"><div class="ttname"><a href="class_o_l_e_d.html#ab53ac5ec90b3ba46b9d4c66fc11159be">OLED::headerline</a></div><div class="ttdeci">void headerline()</div><div class="ttdoc">Add a header line.</div><div class="ttdef"><b>Definition:</b> OLED.cpp:13</div></div>
+<div class="ttc" id="aclass_o_l_e_d_html_ab746011662736e10b03f9cb3c073291e"><div class="ttname"><a href="class_o_l_e_d.html#ab746011662736e10b03f9cb3c073291e">OLED::OLEDtesttext</a></div><div class="ttdeci">void OLEDtesttext()</div><div class="ttdoc">Display the test text on the OLED screen.</div><div class="ttdef"><b>Definition:</b> OLED.cpp:42</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
