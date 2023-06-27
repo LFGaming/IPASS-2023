@@ -70,6 +70,9 @@ bool OLED::OLEDtest(){
     }
     if (input == 'y')
     {
+        hwlib::wait_ms(200);
+        hwlib::cout<< "The Oled work correctly \n";
+        hwlib::cout<< "The program now get started.";
         return true;
     }else
     {
