@@ -11,13 +11,7 @@
 
 #include "SI7021.hpp"
 
-/**
- * @brief
- * Get the Temperature object
- * @details
- * Get the temperature data from the SI7021 sensor and convert that into usable degrees Celsius.
- */
-void SI7021::GetTemperature() {
+int SI7021::GetTemperature() {
     uint8_t temperature_out[2];
 
     // Create I2C write transaction
@@ -28,20 +22,11 @@ void SI7021::GetTemperature() {
 
     // Calculate temperature from the received data
     uint16_t raw_temperature = (temperature_out[0] << 8) | temperature_out[1];
-    // float temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
     uint16_t temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
-
-    // Print the measured temperature
-    hwlib::cout << "Temperature: " << temperature << " degrees Celsius" << hwlib::endl;
+    return temperature;
 }
 
-/**
- * @brief 
- * Get the Humidity object
- * @details 
- * Get the humidity data from the SI7021 sensor and convert that into usable humidity percentages.
- */
-void SI7021::GetHumidity() {
+int SI7021::GetHumidity() {
     uint8_t humidity_out[2];
 
     // Create I2C write transaction
@@ -52,9 +37,65 @@ void SI7021::GetHumidity() {
 
     // Calculate temperature from the received data
     uint16_t raw_humidity = (humidity_out[0] << 8) | humidity_out[1];
-    // float temperature = static_cast<float>(raw_temperature) * 175.72 / 65536 - 46.85;
     uint16_t humidity = static_cast<float>(raw_humidity) * 125 / 65536 - 6;
+    return humidity;
+}
 
-    // Print the measured temperature
-    hwlib::cout << "Humidity: " << humidity << "%" << hwlib::endl;
+// ################################# //
+// Tests for the the SI7021 sensor   //
+// ################################# //
+
+int SI7021::testTemp(){
+    hwlib::wait_ms(1000);
+    char input;
+    hwlib::cout << "Testing the SI7021 Temperature:" << "\n" << hwlib::flush;
+    int temperature = GetTemperature();
+    hwlib::cout<<temperature << hwlib::endl;
+
+    hwlib::cout<<"Does the above value seem correct? y/n "<< "\n" ;
+    hwlib::cin>>input;
+    while (input != 'y' && input != 'n')
+    {
+        hwlib::cin>>input;
+    }
+    return input;
+}
+
+int SI7021::testHumid(){
+    hwlib::wait_ms(1000);
+    char input;
+    hwlib::cout << "Testing the SI7021 Humidity:" << "\n" << hwlib::flush;
+    int temperature = GetHumidity();
+    hwlib::cout<<temperature << hwlib::endl;
+
+    hwlib::cout<<"Does the above value seem correct? y/n "<< "\n" ;
+    hwlib::cin>>input;
+    while (input != 'y' && input != 'n')
+    {
+        hwlib::cin>>input;
+    }
+    return input;
+}
+
+bool SI7021::SItest(){
+    if(testTemp() == 'y'){
+        hwlib::wait_ms(200);
+        hwlib::cout<< "Temperature works correctly \n";
+        if (testHumid() == 'y')
+        {
+            hwlib::wait_ms(200);
+            hwlib::cout<< "Humidity works correctly \n";
+            return true;
+        }else
+        {
+            hwlib::wait_ms(200);
+            hwlib::cout<< "Humidity does not works correctly... \n";
+            return false;
+        }
+    }else
+    {
+        hwlib::wait_ms(200);
+        hwlib::cout<< "Temperature does not work correctly... \n";
+        return false;
+    }
 }

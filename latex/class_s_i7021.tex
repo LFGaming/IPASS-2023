@@ -1,0 +1,84 @@
+\hypertarget{class_s_i7021}{}\doxysection{SI7021 Class Reference}
+\label{class_s_i7021}\index{SI7021@{SI7021}}
+
+
+Class for interfacing with the \mbox{\hyperlink{class_s_i7021}{SI7021}} temperature and humidity sensor.  
+
+
+
+
+{\ttfamily \#include $<$SI7021.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_i7021_ab567e77502ce81800aa1d99ae638e6e7}{SI7021}} (hwlib\+::target\+::pin\+\_\+oc \&scl, hwlib\+::target\+::pin\+\_\+oc \&sda)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_s_i7021}{SI7021}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_i7021_ab0b2b3e04b302d7a6d00b730ebfd268f}{Get\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Get the temperature from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_i7021_afbd988c5b13bb9d973de9c4b3e6e440d}{Get\+Humidity}} ()
+\begin{DoxyCompactList}\small\item\em Get the humidity from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for interfacing with the \mbox{\hyperlink{class_s_i7021}{SI7021}} temperature and humidity sensor. 
+
+The \mbox{\hyperlink{class_s_i7021}{SI7021}} class provides functions to communicate with the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor using I2C. It allows reading temperature and humidity data from the sensor. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_i7021_ab567e77502ce81800aa1d99ae638e6e7}\label{class_s_i7021_ab567e77502ce81800aa1d99ae638e6e7}} 
+\index{SI7021@{SI7021}!SI7021@{SI7021}}
+\index{SI7021@{SI7021}!SI7021@{SI7021}}
+\doxysubsubsection{\texorpdfstring{SI7021()}{SI7021()}}
+{\footnotesize\ttfamily SI7021\+::\+SI7021 (\begin{DoxyParamCaption}\item[{hwlib\+::target\+::pin\+\_\+oc \&}]{scl,  }\item[{hwlib\+::target\+::pin\+\_\+oc \&}]{sda }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{class_s_i7021}{SI7021}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scl} & The SCL pin for I2C communication. \\
+\hline
+{\em sda} & The SDA pin for I2C communication. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_i7021_afbd988c5b13bb9d973de9c4b3e6e440d}\label{class_s_i7021_afbd988c5b13bb9d973de9c4b3e6e440d}} 
+\index{SI7021@{SI7021}!GetHumidity@{GetHumidity}}
+\index{GetHumidity@{GetHumidity}!SI7021@{SI7021}}
+\doxysubsubsection{\texorpdfstring{GetHumidity()}{GetHumidity()}}
+{\footnotesize\ttfamily int SI7021\+::\+Get\+Humidity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the humidity from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor. 
+
+This function retrieves the humidity data from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor and converts it into percentage.
+
+\begin{DoxyReturn}{Returns}
+int The humidity value in percentage. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_i7021_ab0b2b3e04b302d7a6d00b730ebfd268f}\label{class_s_i7021_ab0b2b3e04b302d7a6d00b730ebfd268f}} 
+\index{SI7021@{SI7021}!GetTemperature@{GetTemperature}}
+\index{GetTemperature@{GetTemperature}!SI7021@{SI7021}}
+\doxysubsubsection{\texorpdfstring{GetTemperature()}{GetTemperature()}}
+{\footnotesize\ttfamily int SI7021\+::\+Get\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the temperature from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor. 
+
+This function retrieves the temperature data from the \mbox{\hyperlink{class_s_i7021}{SI7021}} sensor and converts it into degrees Celsius.
+
+\begin{DoxyReturn}{Returns}
+int The temperature value in degrees Celsius. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{_s_i7021_8hpp}{SI7021.\+hpp}}\item 
+src/\mbox{\hyperlink{_s_i7021_8cpp}{SI7021.\+cpp}}\end{DoxyCompactItemize}

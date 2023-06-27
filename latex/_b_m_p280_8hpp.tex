@@ -1,0 +1,53 @@
+\hypertarget{_b_m_p280_8hpp}{}\doxysection{src/\+BMP280.hpp File Reference}
+\label{_b_m_p280_8hpp}\index{src/BMP280.hpp@{src/BMP280.hpp}}
+
+
+This file contains the declaration of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} class and related structures.  
+
+
+{\ttfamily \#include $<$hwlib.\+hpp$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_calibration_data}{Calibration\+Data}}
+\begin{DoxyCompactList}\small\item\em Structure to store calibration data of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_b_m_p280}{BMP280}}
+\begin{DoxyCompactList}\small\item\em Class for interfacing with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} temperature and pressure sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{_b_m_p280_8hpp_a6ab6136c3aec45e823be3697abd8d2e5}{BMP280\+\_\+\+ADDRESS}} = 0x77
+\item 
+constexpr uint8\+\_\+t \mbox{\hyperlink{_b_m_p280_8hpp_af153590b9b62bdd1d48b8bfb5f31cc3b}{BMP280\+\_\+\+REG\+\_\+\+TEMP\+\_\+\+MSB}} = 0x\+FA
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the declaration of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} class and related structures. 
+
+\begin{DoxyAuthor}{Author}
+Luke Tenback (\href{mailto:Luke.tenback@student.hu.nl}{\texttt{ Luke.\+tenback@student.\+hu.\+nl}})
+\end{DoxyAuthor}
+The \mbox{\hyperlink{class_b_m_p280}{BMP280}} class provides functions to communicate with the \mbox{\hyperlink{class_b_m_p280}{BMP280}} temperature and pressure sensor using I2C. It allows reading temperature and calibration data from the sensor. \begin{DoxyDate}{Date}
+2023-\/06-\/23 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_b_m_p280_8hpp_a6ab6136c3aec45e823be3697abd8d2e5}\label{_b_m_p280_8hpp_a6ab6136c3aec45e823be3697abd8d2e5}} 
+\index{BMP280.hpp@{BMP280.hpp}!BMP280\_ADDRESS@{BMP280\_ADDRESS}}
+\index{BMP280\_ADDRESS@{BMP280\_ADDRESS}!BMP280.hpp@{BMP280.hpp}}
+\doxysubsubsection{\texorpdfstring{BMP280\_ADDRESS}{BMP280\_ADDRESS}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t BMP280\+\_\+\+ADDRESS = 0x77\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+I2C address of the \mbox{\hyperlink{class_b_m_p280}{BMP280}} sensor. \mbox{\Hypertarget{_b_m_p280_8hpp_af153590b9b62bdd1d48b8bfb5f31cc3b}\label{_b_m_p280_8hpp_af153590b9b62bdd1d48b8bfb5f31cc3b}} 
+\index{BMP280.hpp@{BMP280.hpp}!BMP280\_REG\_TEMP\_MSB@{BMP280\_REG\_TEMP\_MSB}}
+\index{BMP280\_REG\_TEMP\_MSB@{BMP280\_REG\_TEMP\_MSB}!BMP280.hpp@{BMP280.hpp}}
+\doxysubsubsection{\texorpdfstring{BMP280\_REG\_TEMP\_MSB}{BMP280\_REG\_TEMP\_MSB}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t BMP280\+\_\+\+REG\+\_\+\+TEMP\+\_\+\+MSB = 0x\+FA\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+Register address for temperature MSB. 
