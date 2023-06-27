@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IPASS 2023
+   <div id="projectname">IPASS 2023<span id="projectnumber">&#160;v1.3</span>
    </div>
   </td>
  </tr>
@@ -115,6 +115,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7455cb5100bdb48b45655f4f70d24ae6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_l_e_d.html#a7455cb5100bdb48b45655f4f70d24ae6">clear</a> ()</td></tr>
 <tr class="memdesc:a7455cb5100bdb48b45655f4f70d24ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> screen.  <br /></td></tr>
 <tr class="separator:a7455cb5100bdb48b45655f4f70d24ae6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab746011662736e10b03f9cb3c073291e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_l_e_d.html#ab746011662736e10b03f9cb3c073291e">OLEDtesttext</a> ()</td></tr>
+<tr class="memdesc:ab746011662736e10b03f9cb3c073291e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display the test text on the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> screen.  <br /></td></tr>
+<tr class="separator:ab746011662736e10b03f9cb3c073291e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34fecc35e49d842cc3611a1b11746647"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_o_l_e_d.html#a34fecc35e49d842cc3611a1b11746647">OLEDtest</a> ()</td></tr>
+<tr class="memdesc:a34fecc35e49d842cc3611a1b11746647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a self-test of the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> display.  <br /></td></tr>
+<tr class="separator:a34fecc35e49d842cc3611a1b11746647"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class for interfacing with the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> display. </p>
@@ -203,6 +209,47 @@ Public Member Functions</h2></td></tr>
 
 <p>Add a header line. </p>
 <p>Adds a line under the Big Header at the top of the screen. </p>
+
+</div>
+</div>
+<a id="a34fecc35e49d842cc3611a1b11746647" name="a34fecc35e49d842cc3611a1b11746647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34fecc35e49d842cc3611a1b11746647">&#9670;&#160;</a></span>OLEDtest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool OLED::OLEDtest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Perform a self-test of the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> display. </p>
+<p>This function performs a self-test of the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> display by displaying test text on the screen and prompting the user to verify the displayed text.</p>
+<dl class="section return"><dt>Returns</dt><dd>bool True if the self-test passed, False otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ab746011662736e10b03f9cb3c073291e" name="ab746011662736e10b03f9cb3c073291e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab746011662736e10b03f9cb3c073291e">&#9670;&#160;</a></span>OLEDtesttext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void OLED::OLEDtesttext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Display the test text on the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> screen. </p>
+<p>This function displays the test text on the <a class="el" href="class_o_l_e_d.html" title="Class for interfacing with the OLED display.">OLED</a> screen for the purpose of testing. </p>
 
 </div>
 </div>

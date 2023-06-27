@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IPASS 2023
+   <div id="projectname">IPASS 2023<span id="projectnumber">&#160;v1.3</span>
    </div>
   </td>
  </tr>
@@ -110,13 +110,22 @@ $(document).ready(function(){initNavTree('_s_i7021_8hpp_source.html',''); initRe
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_i7021.html#ab0b2b3e04b302d7a6d00b730ebfd268f">GetTemperature</a>();</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_i7021.html#afbd988c5b13bb9d973de9c4b3e6e440d">GetHumidity</a>();</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>};</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#endif </span><span class="comment">// SI7021_HPP</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_i7021.html#a5a6d088635cadea55d82080bc2dee90c">testTemp</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_i7021.html#a49343baddf85d66a968bfcc7a2b987c6">testHumid</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_s_i7021.html#a77906e500d9f9914f2fd67d37118d800">SItest</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">#endif </span><span class="comment">// SI7021_HPP</span></div>
 <div class="ttc" id="aclass_s_i7021_html"><div class="ttname"><a href="class_s_i7021.html">SI7021</a></div><div class="ttdoc">Class for interfacing with the SI7021 temperature and humidity sensor.</div><div class="ttdef"><b>Definition:</b> SI7021.hpp:23</div></div>
+<div class="ttc" id="aclass_s_i7021_html_a49343baddf85d66a968bfcc7a2b987c6"><div class="ttname"><a href="class_s_i7021.html#a49343baddf85d66a968bfcc7a2b987c6">SI7021::testHumid</a></div><div class="ttdeci">int testHumid()</div><div class="ttdoc">Test the SI7021 humidity measurement.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:64</div></div>
+<div class="ttc" id="aclass_s_i7021_html_a5a6d088635cadea55d82080bc2dee90c"><div class="ttname"><a href="class_s_i7021.html#a5a6d088635cadea55d82080bc2dee90c">SI7021::testTemp</a></div><div class="ttdeci">int testTemp()</div><div class="ttdoc">Test the SI7021 temperature measurement.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:48</div></div>
+<div class="ttc" id="aclass_s_i7021_html_a77906e500d9f9914f2fd67d37118d800"><div class="ttname"><a href="class_s_i7021.html#a77906e500d9f9914f2fd67d37118d800">SI7021::SItest</a></div><div class="ttdeci">bool SItest()</div><div class="ttdoc">Perform a self-test of the SI7021 sensor.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:80</div></div>
 <div class="ttc" id="aclass_s_i7021_html_ab0b2b3e04b302d7a6d00b730ebfd268f"><div class="ttname"><a href="class_s_i7021.html#ab0b2b3e04b302d7a6d00b730ebfd268f">SI7021::GetTemperature</a></div><div class="ttdeci">int GetTemperature()</div><div class="ttdoc">Get the temperature from the SI7021 sensor.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:14</div></div>
 <div class="ttc" id="aclass_s_i7021_html_ab567e77502ce81800aa1d99ae638e6e7"><div class="ttname"><a href="class_s_i7021.html#ab567e77502ce81800aa1d99ae638e6e7">SI7021::SI7021</a></div><div class="ttdeci">SI7021(hwlib::target::pin_oc &amp;scl, hwlib::target::pin_oc &amp;sda)</div><div class="ttdoc">Construct a new SI7021 object.</div><div class="ttdef"><b>Definition:</b> SI7021.hpp:36</div></div>
-<div class="ttc" id="aclass_s_i7021_html_afbd988c5b13bb9d973de9c4b3e6e440d"><div class="ttname"><a href="class_s_i7021.html#afbd988c5b13bb9d973de9c4b3e6e440d">SI7021::GetHumidity</a></div><div class="ttdeci">int GetHumidity()</div><div class="ttdoc">Get the humidity from the SI7021 sensor.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:32</div></div>
+<div class="ttc" id="aclass_s_i7021_html_afbd988c5b13bb9d973de9c4b3e6e440d"><div class="ttname"><a href="class_s_i7021.html#afbd988c5b13bb9d973de9c4b3e6e440d">SI7021::GetHumidity</a></div><div class="ttdeci">int GetHumidity()</div><div class="ttdoc">Get the humidity from the SI7021 sensor.</div><div class="ttdef"><b>Definition:</b> SI7021.cpp:29</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
