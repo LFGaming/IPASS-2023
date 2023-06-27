@@ -74,7 +74,7 @@ bool OLED::OLEDtest(){
     }else
     {
         hwlib::wait_ms(200);
-        hwlib::cout<< "The Oled does not work or is not conencted properly... "
+        hwlib::cout<< "The Oled does not work or is not conencted properly... ";
         return false;
     }
 }
