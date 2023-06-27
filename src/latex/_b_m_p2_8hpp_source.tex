@@ -1,0 +1,93 @@
+\hypertarget{_b_m_p2_8hpp_source}{}\doxysection{BMP2.\+hpp}
+\label{_b_m_p2_8hpp_source}\index{src/BMP2.hpp@{src/BMP2.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ BPMP280\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ BMP280\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#define\ BMP280\_S32\_t\ long\ signed\ int}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <hwlib.hpp>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ BMP280\_ADDRESS\ =\ 0x77;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ BMP280\_REG\_TEMP\_MSB\ =\ 0xFA;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{constexpr}\ uint8\_t\ BMP280\_REGISTER\_PRESSUREDATA\ =\ 0xF7;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_b_m_p280}{BMP280}}\ \{}
+\DoxyCodeLine{00012\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \ \ uint16\_t\ dig\_T1;\ }
+\DoxyCodeLine{00016\ \ \ \ \ int16\_t\ dig\_T2;\ \ }
+\DoxyCodeLine{00017\ \ \ \ \ int16\_t\ dig\_T3;\ \ }
+\DoxyCodeLine{00019\ \ \ \ \ uint16\_t\ dig\_P1;\ }
+\DoxyCodeLine{00020\ \ \ \ \ int16\_t\ dig\_P2;\ \ }
+\DoxyCodeLine{00021\ \ \ \ \ int16\_t\ dig\_P3;\ \ }
+\DoxyCodeLine{00022\ \ \ \ \ int16\_t\ dig\_P4;\ \ }
+\DoxyCodeLine{00023\ \ \ \ \ int16\_t\ dig\_P5;\ \ }
+\DoxyCodeLine{00024\ \ \ \ \ int16\_t\ dig\_P6;\ \ }
+\DoxyCodeLine{00025\ \ \ \ \ int16\_t\ dig\_P7;\ \ }
+\DoxyCodeLine{00026\ \ \ \ \ int16\_t\ dig\_P8;\ \ }
+\DoxyCodeLine{00027\ \ \ \ \ int16\_t\ dig\_P9;\ \ }
+\DoxyCodeLine{00029\ \ \ \ \textcolor{comment}{//\ int32\_t\ t\_fine;\ //\ Member\ variable\ for\ storing\ fine\ temperature\ value}}
+\DoxyCodeLine{00030\ \ \ \ \ hwlib::pin\_oc\ \&\ scl;}
+\DoxyCodeLine{00031\ \ \ \ \ hwlib::pin\_oc\ \&\ sda;}
+\DoxyCodeLine{00032\ \ \ \ \ hwlib::i2c\_bus\_bit\_banged\_scl\_sda\ bus;}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_b_m_p280}{BMP280}}(hwlib::target::pin\_oc\ \&\ scl,\ hwlib::target::pin\_oc\ \&\ sda)\ :}
+\DoxyCodeLine{00036\ \ \ \ \ scl(scl),}
+\DoxyCodeLine{00037\ \ \ \ \ sda(sda),}
+\DoxyCodeLine{00038\ \ \ \ \ bus\ (hwlib::i2c\_bus\_bit\_banged\_scl\_sda(\ scl,\ sda\ ))}
+\DoxyCodeLine{00039\ \ \ \ \ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ gettemp()\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ uint8\_t\ temperature\_out[3];}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \{\ hwlib::i2c\_write\_transaction\ writetrans\ =\ ((hwlib::i2c\_bus*)(\&bus))\ -\/>\ write(\mbox{\hyperlink{_b_m_p280_8hpp_a6ab6136c3aec45e823be3697abd8d2e5}{BMP280\_ADDRESS}});}
+\DoxyCodeLine{00045\ \ \ \ \ writetrans.write\ (\mbox{\hyperlink{_b_m_p280_8hpp_af153590b9b62bdd1d48b8bfb5f31cc3b}{BMP280\_REG\_TEMP\_MSB}});\ \}}
+\DoxyCodeLine{00046\ \ \ \ \ \{\ hwlib::i2c\_read\_transaction\ readtrans\ =\ ((hwlib::i2c\_bus*)(\&bus))\ -\/>\ read(\mbox{\hyperlink{_b_m_p280_8hpp_a6ab6136c3aec45e823be3697abd8d2e5}{BMP280\_ADDRESS}});}
+\DoxyCodeLine{00047\ \ \ \ \ readtrans.read\ (temperature\_out,\ 3);\ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hwlib::cout\ <<\ temperature\_out[0]\ <<\ "{}\(\backslash\)n"{}\ <<\ hwlib::flush;}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hwlib::cout\ <<\ temperature\_out[1]\ <<\ "{}\(\backslash\)n"{}\ <<\ hwlib::flush;}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ hwlib::cout\ <<\ temperature\_out[2]\ <<\ "{}\(\backslash\)n"{}\ <<\ hwlib::flush;}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ \ \{\ hwlib::i2c\_write\_transaction\ wtrans\ =\ ((hwlib::i2c\_bus*)(bus))-\/>write(address);}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ wtrans.write(temp\_reg);\}}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{comment}{//\ \ \ //\ read\ results\ from\ temperature\ adress\ in\ Celcius(C)}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{comment}{//\ \{\ hwlib::i2c\_read\_transaction\ rtrans\ =\ ((hwlib::i2c\_bus*)(bus))-\/>read(address);}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ \ \ \ \ rtrans.read(results,\ 3);\}}}
+\DoxyCodeLine{00061\ \ }
+\DoxyCodeLine{00062\ \ \ \ \ int32\_t\ raw\_output\ =\ 0x000;}
+\DoxyCodeLine{00063\ \ \ \ \ temperature\_out[2]\ >>=\ 4;}
+\DoxyCodeLine{00064\ \ \ \ \ raw\_output\ =\ (raw\_output|temperature\_out[0])\ <<\ 8;}
+\DoxyCodeLine{00065\ \ \ \ \ raw\_output\ =\ (raw\_output|temperature\_out[1])\ <<4;}
+\DoxyCodeLine{00066\ \ \ \ \ raw\_output\ =\ raw\_output\ |temperature\_out[2];}
+\DoxyCodeLine{00067\ \ \ \ \ }
+\DoxyCodeLine{00068\ \ \ \textcolor{comment}{//\ bmp280\_compensate\_T\_int32(raw\_output);}}
+\DoxyCodeLine{00069\ \ \ \ hwlib::cout\ <<\ \textcolor{stringliteral}{"{}BMP280:\ Temperature:\ "{}}\ <<\ bmp280\_compensate\_T\_int32(raw\_output)\ <<\ \textcolor{stringliteral}{"{}\ degrees\ Celsius\(\backslash\)n"{}}\ <<\ \ hwlib::flush;}
+\DoxyCodeLine{00070\ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ }
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ BMP280\_S32\_t\ t\_fine;}
+\DoxyCodeLine{00076\ BMP280\_S32\_t\ bmp280\_compensate\_T\_int32(BMP280\_S32\_t\ adc\_T)}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ BMP280\_S32\_t\ var1,\ var2,\ T;}
+\DoxyCodeLine{00079\ \ \ \ \ var1\ =\ ((((adc\_T>>3)\ -\/\ ((BMP280\_S32\_t)dig\_T1<<1)))\ *\ ((BMP280\_S32\_t)dig\_T2))\ >>\ 11;}
+\DoxyCodeLine{00080\ \ \ \ \ var2\ =\ (((((adc\_T>>4)\ -\/\ ((BMP280\_S32\_t)dig\_T1))\ *\ ((adc\_T>>4)\ -\/\ ((BMP280\_S32\_t)dig\_T1)))\ >>\ 12)\ *}
+\DoxyCodeLine{00081\ \ \ \ \ ((BMP280\_S32\_t)dig\_T3))\ >>\ 14;}
+\DoxyCodeLine{00082\ \ \ \ \ t\_fine\ =\ var1\ +\ var2;}
+\DoxyCodeLine{00083\ \ \ \ \ T\ =\ (t\_fine\ *\ 5\ +\ 128)\ >>\ 8;}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordflow}{return}\ T;}
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//BMP280\_HPP}}
+
+\end{DoxyCode}
