@@ -35,6 +35,10 @@ void OLED::clear(){
     oled.clear();
     }
 
+// ############################ //
+// Tests for the Oled display   //
+// ############################ //
+
 void OLED::OLEDtesttext(){
     big_header
         << "\f" << "SI7021";
