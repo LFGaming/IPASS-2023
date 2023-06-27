@@ -46,3 +46,58 @@ int SI7021::GetHumidity() {
     // Print the measured temperature
     hwlib::cout << "Humidity: " << humidity << "%" << hwlib::endl;
 }
+
+int SI7021::testTemp(){
+    hwlib::wait_ms(1000);
+    char input;
+    hwlib::cout << "Testing the SI7021 Temperature:" << "\n" << hwlib::flush;
+    int temperature = GetTemperature();
+    hwlib::cout<<temperature << hwlib::endl;
+
+    hwlib::cout<<"Does the above value seem correct? y/n "<< "\n" ;
+    hwlib::cin>>input;
+    while (input != 'y' && input != 'n')
+    {
+        hwlib::cin>>input;
+    }
+    return input;
+}
+
+int SI7021::testHumid(){
+    hwlib::wait_ms(1000);
+    char input;
+    hwlib::cout << "Testing the SI7021 Humidity:" << "\n" << hwlib::flush;
+    int temperature = GetHumidity();
+    hwlib::cout<<temperature << hwlib::endl;
+
+    hwlib::cout<<"Does the above value seem correct? y/n "<< "\n" ;
+    hwlib::cin>>input;
+    while (input != 'y' && input != 'n')
+    {
+        hwlib::cin>>input;
+    }
+    return input;
+}
+
+bool SI7021::SItest(){
+    if(testTemp() == 'y'){
+        hwlib::wait_ms(200);
+        hwlib::cout<< "Temperature works correctly \n";
+        if (testHumid() == 'y')
+        {
+            hwlib::wait_ms(200);
+            hwlib::cout<< "Humidity works correctly \n";
+            return true;
+        }else
+        {
+            hwlib::wait_ms(200);
+            hwlib::cout<< "Humidity does not works correctly... \n";
+            return false;
+        }
+    }else
+    {
+        hwlib::wait_ms(200);
+        hwlib::cout<< "Temperature does not work correctly... \n";
+        return false;
+    }
+}

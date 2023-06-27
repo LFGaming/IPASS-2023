@@ -7,3 +7,4 @@
 src/_cc_flags
 src/_cpp_flags
 src/_linker_flags
+src/main.ld
