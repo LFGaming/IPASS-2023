@@ -15,9 +15,9 @@ int SI7021::GetTemperature() {
     uint8_t temperature_out[2];
 
     // Create I2C write transaction
-    { hwlib::i2c_write_transaction writetrans = ((hwlib::i2c_bus*)(&bus)) -> write(0x40);
-    writetrans.write (0xE3); }
-    { hwlib::i2c_read_transaction readtrans = ((hwlib::i2c_bus*)(&bus)) -> read(0x40);
+    { hwlib::i2c_write_transaction writetrans = ((hwlib::i2c_bus*)(&bus)) -> write(SI_ADDRESS);
+    writetrans.write (SI_TEMP_WRITE); }
+    { hwlib::i2c_read_transaction readtrans = ((hwlib::i2c_bus*)(&bus)) -> read(SI_ADDRESS);
     readtrans.read (temperature_out, 2); }
 
     // Calculate temperature from the received data
@@ -30,9 +30,9 @@ int SI7021::GetHumidity() {
     uint8_t humidity_out[2];
 
     // Create I2C write transaction
-    { hwlib::i2c_write_transaction writetrans = ((hwlib::i2c_bus*)(&bus)) -> write(0x40);
-    writetrans.write (0xE5); }
-    { hwlib::i2c_read_transaction readtrans = ((hwlib::i2c_bus*)(&bus)) -> read(0x40);
+    { hwlib::i2c_write_transaction writetrans = ((hwlib::i2c_bus*)(&bus)) -> write(SI_ADDRESS);
+    writetrans.write (SI_HUMID_WRITE); }
+    { hwlib::i2c_read_transaction readtrans = ((hwlib::i2c_bus*)(&bus)) -> read(SI_ADDRESS);
     readtrans.read (humidity_out, 2); }
 
     // Calculate temperature from the received data

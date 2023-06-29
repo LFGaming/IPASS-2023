@@ -12,6 +12,10 @@
 #ifndef SI7021_HPP
 #define SI7021_HPP
 
+#define SI_ADDRESS 0x40
+#define SI_TEMP_WRITE 0xE3
+#define SI_HUMID_WRITE 0xE5
+
 #include "hwlib.hpp"
 
 /**
