@@ -18,3 +18,5 @@ The pins of my chips are connected as follows:
 |WAK|<->|GND
 
 <img src="./Breadboard_bb.png" alt="Breadboard setup" title="Breadboard setup">
+
+At the end of the project my code for the BMP280 and CCS811 sensors **DOES NOT WORK!** Hopefully I can find the time to fix them too, but no guarantees.
